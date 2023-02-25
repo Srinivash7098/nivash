@@ -77,12 +77,25 @@
         </div>
 
         <div class="button">
-          <button type="submit" name="submit">submit</button>
+          <button type="submit" onclick="validate()" name="submit">submit</button>
           <button type="button" name="record">show records</button>
         </div>
 
       </form>
       <script>
+
+       /* function validate(){
+          var mail=document.getElementById("email").value;
+          var regx=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+          if(regx.email(mail)){
+            alert("you have provided a valid email")
+          }
+          else{
+            alert("sorryyyyyyyy enter a valid email id")
+            return false;
+          }
+        }*/
 
         //validate password//
         var fpass = document.getElementById('pass');
