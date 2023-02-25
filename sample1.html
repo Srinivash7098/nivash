@@ -39,7 +39,7 @@
     <div class="title">Registration</div>
     <div class="content">
 
-      <form action="my.php" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+      <form action="" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
         <div class="user-details">
 
           <img width="130px" height="130px" src="#" id="newImg">
@@ -71,61 +71,74 @@
           </div>
           <div class="input-box">
             <label class="details">Confirm Password</label>
-            <input type="text" name="cf" placeholder="Confirm your password" id="cf">
-            <label class="jv" id="e" style="display:none">*please enter your confirm password</label>
+            <input type="text" name="cf" placeholder="Confirm your password" id="cf" onkeyup="check(this)">
+            <label class="jv" id="e"></label>
           </div>
         </div>
 
         <div class="button">
-          <button type="submit"name="submit">submit</button>
-          <button type="button"name="record">show records</button>
+          <button type="submit" name="submit">submit</button>
+          <button type="button" name="record">show records</button>
         </div>
 
       </form>
-      <script >
+      <script>
+
+        //validate password//
+        var fpass = document.getElementById('pass');
+        function check(elem) {
+          if (elem.value.length > 0) {
+            if (elem.value !== pass.value) {
+              document.getElementById('e').innerText = "confirm password does not match";
+            }
+            else{
+              document.getElementById('e').innerText="";
+            }
+          }
+        }
+        //validate form inputs//
+        var isvalid = true;
+        var fname = document.getElementById('name');
+        var femail = document.getElementById('email');
+        var fnum = document.getElementById('number');
+
+        var fcf = document.getElementById('cf');
         
-        var isvalid=true;
-        var fname=document.getElementById('name');
-        var femail=document.getElementById('email');
-        var fnum=document.getElementById('number');
-        var fpass=document.getElementById('pass');
-        var fcf=document.getElementById('cf');
 
-        var fnameerr=document.getElementById('a');
-        var femaileerr=document.getElementById('b');
-        var fnumerr=document.getElementById('c');
-        var fpasserr=document.getElementById('d');
-        var fcferr=document.getElementById('e');
+
+        var fnameerr = document.getElementById('a');
+        var femaileerr = document.getElementById('b');
+        var fnumerr = document.getElementById('c');
+        var fpasserr = document.getElementById('d');
 
 
 
-        var formElement=document.querySelector('form');
-        formElement.addEventListener('submit',event=>{
-          if(fname.value==''){
-            fnameerr.style.display="block";
-            isvalid=false;
+
+        var formElement = document.querySelector('form');
+        formElement.addEventListener('submit', event => {
+          if (fname.value == '') {
+            fnameerr.style.display = "block";
+            isvalid = false;
           }
-          if(femail.value==''){
-            femaileerr.style.display="block";
-            isvalid=false;
+          if (femail.value == '') {
+            femaileerr.style.display = "block";
+            isvalid = false;
           }
-          if(fnum.value==''){
-            fnumerr.style.display="block";
-            isvalid=false;
+          if (fnum.value == '') {
+            fnumerr.style.display = "block";
+            isvalid = false;
           }
-          if(fpass.value==''){
-            fpasserr.style.display="block";
-            isvalid=false;
+          if (fpass.value == '') {
+            fpasserr.style.display = "block";
+            isvalid = false;
           }
-          if(fcf.value==''){
-            fcferr.style.display="block";
-            isvalid=false;
-          }
-          if(!isvalid){
+          if (!isvalid) {
             event.preventDefault();
           }
+          i
         })
 
+        //image preview//
 
         InpImg.onchange = evt => {
           const [file] = InpImg.files
@@ -135,7 +148,7 @@
 
         }
 
-        
+
       </script>
 
     </div>
