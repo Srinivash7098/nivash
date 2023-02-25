@@ -1,59 +1,146 @@
-<html >
-  <head>
-    <title> regs</title>
+<html>
 
-    <link rel="stylesheet" href="sample1.css">
-    
-   </head>
+<head>
+  <title> regs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <link rel="stylesheet" href="sample1.css">
+
+</head>
+
 <body>
-  <div class="topnav">
-    <a class="active" href="home">Home</a>
-    <a href="home">News</a>
-    <a href="contact">Contact</a>
-    <div class="topnav-right">
-      <a href="search">Search</a>
-      <a href="about">About</a>
-    </div>
+  <script src="/sample.js"></script>
+  <div class="head">
+    <ul class="navbar">
+      <li>
+        <h3><a href="#">Home</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">News</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Contact</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Search</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">About</a>
+      </li>
+      </h3>
+    </ul>
   </div>
+
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="sample1.php" method="POST">
+
+      <form action="my.php" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
         <div class="user-details">
+
+          <img width="130px" height="130px" src="#" id="newImg">
+          <input type="file" name="img_dir" id="InpImg">
+          <input type="file" name="as" id="az">
 
           <div class="input-box">
             <label class="details">Full Name</label>
-            <input type="text" name="uname" placeholder="Enter your name">
+            <input type="text" name="name" placeholder="Enter your name" id="name">
+            <label class="jv" id="a" style="display:none">*please enter your name</label>
           </div>
 
           <div class="input-box">
             <label class="details">Email</label>
-            <input type="text" name="email" placeholder="Enter your email" required>
+            <input type="text" name="email" placeholder="Enter your email" id="email">
+            <label class="jv" id="b" style="display:none">*please enter your email</label>
           </div>
 
           <div class="input-box">
             <label class="details">Phone Number</label>
-            <input type="text" name="num" placeholder="Enter your number" required>
+            <input type="number" name="num" placeholder="Enter your number" id="number">
+            <label class="jv" id="c" style="display:none">*please enter your number</label>
           </div>
 
           <div class="input-box">
             <label class="details">Password</label>
-            <input type="text"name="pass" placeholder="Enter your password" required>
+            <input type="text" name="pass" placeholder="Enter your password" id="pass">
+            <label class="jv" id="d" style="display:none">*please enter your password</label>
           </div>
           <div class="input-box">
             <label class="details">Confirm Password</label>
-            <input type="text" name="cf" placeholder="Confirm your password" required>
+            <input type="text" name="cf" placeholder="Confirm your password" id="cf">
+            <label class="jv" id="e" style="display:none">*please enter your confirm password</label>
           </div>
         </div>
-            
+
         <div class="button">
-          <button type="submit">register</button>
+          <button type="submit"name="submit">submit</button>
+          <button type="button"name="record">show records</button>
         </div>
 
       </form>
+      <script >
+        
+        var isvalid=true;
+        var fname=document.getElementById('name');
+        var femail=document.getElementById('email');
+        var fnum=document.getElementById('number');
+        var fpass=document.getElementById('pass');
+        var fcf=document.getElementById('cf');
+
+        var fnameerr=document.getElementById('a');
+        var femaileerr=document.getElementById('b');
+        var fnumerr=document.getElementById('c');
+        var fpasserr=document.getElementById('d');
+        var fcferr=document.getElementById('e');
+
+
+
+        var formElement=document.querySelector('form');
+        formElement.addEventListener('submit',event=>{
+          if(fname.value==''){
+            fnameerr.style.display="block";
+            isvalid=false;
+          }
+          if(femail.value==''){
+            femaileerr.style.display="block";
+            isvalid=false;
+          }
+          if(fnum.value==''){
+            fnumerr.style.display="block";
+            isvalid=false;
+          }
+          if(fpass.value==''){
+            fpasserr.style.display="block";
+            isvalid=false;
+          }
+          if(fcf.value==''){
+            fcferr.style.display="block";
+            isvalid=false;
+          }
+          if(!isvalid){
+            event.preventDefault();
+          }
+        })
+
+
+        InpImg.onchange = evt => {
+          const [file] = InpImg.files
+          if (file) {
+            newImg.src = URL.createObjectURL(file)
+          }
+
+        }
+
+        
+      </script>
+
     </div>
   </div>
 
 </body>
+
 </html>
- 
