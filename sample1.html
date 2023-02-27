@@ -39,7 +39,7 @@
     <div class="title">Registration</div>
     <div class="content">
 
-      <form action="" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+      <form name="form1" action="" method="POST" enctype="multipart/form-data" onsubmit=return>
         <div class="user-details">
 
           <img width="130px" height="130px" src="#" id="newImg">
@@ -48,120 +48,42 @@
 
           <div class="input-box">
             <label class="details">Full Name</label>
-            <input type="text" name="name" placeholder="Enter your name" id="name">
-            <label class="jv" id="a" style="display:none">*please enter your name</label>
+            <input type="text" name="nam" placeholder="Enter your name" id="nam">
+            <label class="jv" id="a"></label>
           </div>
 
           <div class="input-box">
             <label class="details">Email</label>
             <input type="text" name="email" placeholder="Enter your email" id="email">
-            <label class="jv" id="b" style="display:none">*please enter your email</label>
+            <label class="jv" id="b"></label>
           </div>
 
           <div class="input-box">
             <label class="details">Phone Number</label>
             <input type="number" name="num" placeholder="Enter your number" id="number">
-            <label class="jv" id="c" style="display:none">*please enter your number</label>
+            <label class="jv" id="c"></label>
           </div>
 
           <div class="input-box">
             <label class="details">Password</label>
             <input type="text" name="pass" placeholder="Enter your password" id="pass">
-            <label class="jv" id="d" style="display:none">*please enter your password</label>
+            <label class="jv" id="d"></label>
           </div>
           <div class="input-box">
             <label class="details">Confirm Password</label>
-            <input type="text" name="cf" placeholder="Confirm your password" id="cf" onkeyup="check(this)">
+            <input type="text" name="cf" placeholder="Confirm your password" id="cf">
             <label class="jv" id="e"></label>
           </div>
         </div>
 
         <div class="button">
           <button type="submit" onclick="validate()" name="submit">submit</button>
-          <button type="button" name="record">show records</button>
+          <button type="button" ><a href="show details.html" onclick="val()">show details</a></button>
         </div>
-
       </form>
-      <script>
-
-       /* function validate(){
-          var mail=document.getElementById("email").value;
-          var regx=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-          if(regx.email(mail)){
-            alert("you have provided a valid email")
-          }
-          else{
-            alert("sorryyyyyyyy enter a valid email id")
-            return false;
-          }
-        }*/
-
-        //validate password//
-        var fpass = document.getElementById('pass');
-        function check(elem) {
-          if (elem.value.length > 0) {
-            if (elem.value !== pass.value) {
-              document.getElementById('e').innerText = "confirm password does not match";
-            }
-            else{
-              document.getElementById('e').innerText="";
-            }
-          }
-        }
-        //validate form inputs//
-        var isvalid = true;
-        var fname = document.getElementById('name');
-        var femail = document.getElementById('email');
-        var fnum = document.getElementById('number');
-
-        var fcf = document.getElementById('cf');
-        
-
-
-        var fnameerr = document.getElementById('a');
-        var femaileerr = document.getElementById('b');
-        var fnumerr = document.getElementById('c');
-        var fpasserr = document.getElementById('d');
-
-
-
-
-        var formElement = document.querySelector('form');
-        formElement.addEventListener('submit', event => {
-          if (fname.value == '') {
-            fnameerr.style.display = "block";
-            isvalid = false;
-          }
-          if (femail.value == '') {
-            femaileerr.style.display = "block";
-            isvalid = false;
-          }
-          if (fnum.value == '') {
-            fnumerr.style.display = "block";
-            isvalid = false;
-          }
-          if (fpass.value == '') {
-            fpasserr.style.display = "block";
-            isvalid = false;
-          }
-          if (!isvalid) {
-            event.preventDefault();
-          }
-          i
-        })
-
-        //image preview//
-
-        InpImg.onchange = evt => {
-          const [file] = InpImg.files
-          if (file) {
-            newImg.src = URL.createObjectURL(file)
-          }
-
-        }
-
-
+      <script src="sample.js">
+       
+             windows.location.href='show details.html';
       </script>
 
     </div>
