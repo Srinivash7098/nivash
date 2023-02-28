@@ -1,40 +1,36 @@
+<html>
+<head>
+      <title>database record</title>
+      <style type="text/css">
+         table{
+            width:50%;
+            color:black;
+            font-size:25px;
+            text-align:left;
+
+         }</style></head>
+    <body>
+      <table>
+         <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>number</th>
+         </tr>
 <?php
-
-if(isset($_POST('submitvalue')))
-   $uname =$_POST['uname'];
-   $email =$_POST['email'];
-   $num   =$_POST['num'];
-   $pass  =$_POST['pass'];
-   $cf    =$_POST['cf'];
-
-$con=mysqli_connect('localhost','root','','nivash');
-
-if(!$con){
-   die('connection error'.mysqli_connect_error());
-}else{
-echo 'success';
+ $con=mysqli_connect('127.0.0.1','srinivash','srinivash2023','srinivash');
+ if(!$con){
+   die('connection error'.mysqli_connect_errorno());
 }
-$query="INSERT INTO example(uname,email,num,pass,cf) values('$uname','$email','$num','$pass',$cf)";
-$result=mysqli_query($con,$query);
-if($result){
-  echo  'inserted';
+$sql="SELECT nam,email,num from niv";
+$result=$con->query($sql);
+if($result->num_rows>0){
+   while($row=$result->fetch_assoc())
+   {
+      echo  "<tr><td>".$row["nam"]."</td><td>".$row["email"]."</td><td>".$row["num"]."</td><td>";
+   }
 }
-else{
-   echo  'not inserted';
-}
-$con=mysqli_connect('localhost','root','','nivash');
-
-if(!$con){
-   die('connection error'.mysqli_connect_error());
-}else{
-echo 'success';
-}
-$query="INSERT INTO example(uname,email,num,pass,cf) values('niv','ec','1234','asds','asds')";
-$result=mysqli_query($con,$query);
-if($result){
-  echo  'inserted';
-}
-else{
-   echo  'not inserted';
-}
+$con->close();
 ?>
+</table>
+</body>
+</html>
