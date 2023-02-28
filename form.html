@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <link rel="stylesheet" href="sample1.css">
-
+ 
 </head>
 
 <body>
@@ -39,12 +39,11 @@
     <div class="title">Registration</div>
     <div class="content">
 
-      <form name="form1" action="" method="POST" enctype="multipart/form-data" onsubmit=return>
+      <form name="form1" action="sample1.php" method="POST" enctype="multipart/form-data">
         <div class="user-details">
 
           <img width="130px" height="130px" src="#" id="newImg">
           <input type="file" name="img_dir" id="InpImg">
-          <input type="file" name="as" id="az">
 
           <div class="input-box">
             <label class="details">Full Name</label>
@@ -78,12 +77,11 @@
 
         <div class="button">
           <button type="submit" onclick="validate()" name="submit">submit</button>
-          <button type="button" ><a href="show details.html" onclick="val()">show details</a></button>
+          <button type="button" ><a href="my.php">show details</a></button>
         </div>
       </form>
       <script src="sample.js">
-       
-             windows.location.href='show details.html';
+            
       </script>
 
     </div>
