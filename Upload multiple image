@@ -1,48 +1,25 @@
-CREATE TABLE IF NOT EXISTS `multiple` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `image` longblob NOT NULL,
-  PRIMARY KEY (`id`)
-)
+<?php
+// Define the directory where the files will be uploaded
+$target_dir = "uploads/";
 
-Html: In this form tag make sure that you set the '[ ]' in the input tag and 'multiple' use to select the multiple image
-
-<form action="#" enctype="multipart/form-data" method="post">
-<input multiple="" name="img[]" type="file" />
-<input name="submit" type="submit" />
-</form>
-
-PHP: (upload and display)
-
-mysql_connect("localhost","root","");
-mysql_select_dB("image");
-if(isset($_POST["submit"])){
-$filename = $_FILES['img']['name'];
-$file_tmp = $_FILES['img']['tmp_name'];
-$filetype = $_FILES['img']['type'];
-$filesize = $_FILES['img']['size'];
-for($i=0; $i<=count($file_tmp); $i++){
-if(!empty($file_tmp[$i])){
-$name = addslashes($filename[$i]);
-$temp = addslashes(file_get_contents($file_tmp[$i]));
-if(mysql_query("Insert into multiple(name,image) values('$name','$temp')")){
-}
-else{
-echo "failed";
-echo "<br />";
-}
-}
-}
-}
-$res = mysql_query("SELECT * FROM multiple");
-while($row = mysql_fetch_array($res)){
-$displ = $row['image'];
-
-// please place the 
-single quotation ' instead &#39;
-
-
-echo '<img src="data:image/jpeg;base64,'.base64_encode($displ).'" />';
-echo "<br />";
+// Loop through each uploaded file
+foreach ($_FILES["files"]["tmp_name"] as $key => $tmp_name) {
+    // Get the file name, type, and size
+    $file_name = $_FILES["files"]["name"][$key];
+    $file_type = $_FILES["files"]["type"][$key];
+    $file_size = $_FILES["files"]["size"][$key];
+    
+    // Generate a unique file name to avoid overwriting existing files
+    $file_path = $target_dir . uniqid() . "_" . $file_name;
+    
+    // Move the file to the target directory
+    move_uploaded_file($tmp_name, $file_path);
+    
+    // Insert the file information into the database
+    $conn = mysqli_connect("localhost", "username", "password", "database");
+    $sql = "INSERT INTO files (file_name, file_path, file_type, file_size) VALUES ('$file_name', '$file_path', '$file_type', $file_size)";
+    mysqli_query($conn, $sql);
 }
 
+echo "Files uploaded successfully.";
+?>
