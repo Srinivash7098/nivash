@@ -1,3 +1,5 @@
+THIS IS A HTML CODE USED TO SET REGISTRAION INPUTS SAVE IT AS sample1.html
+
 <html>
 
 <head>
@@ -101,7 +103,7 @@
 
 _____________________________________________________________________________________________________________________________________________________
 
-THIS IS CSS FILE SAVE IT AS sample1.css
+THIS IS CSS CODE USED FOR DESIGN THE REGISTRATION FORM, SAVE IT AS sample1.css
 
 *{
   margin: 0;
@@ -273,7 +275,7 @@ THIS IS CSS FILE SAVE IT AS sample1.css
     
     
     _________________________________________________________________________________________________________________________________________________
-    THIS IS A JAVASCRIPT FILE SAVE IT AS sample.js
+    THIS IS A JAVASCRIPT FILE USED TO VALIDATE THE REGISTRATION FORM SAVE IT AS sample.js
     
     function validate(){
     var formElement = document.querySelector('form');
@@ -331,7 +333,7 @@ THIS IS CSS FILE SAVE IT AS sample1.css
   
   _________________________________________________________________________________________________________________________________________________________
   
-  THIS IS A PHP FILE SAVE IT AS sample1.php
+  THIS IS A PHP CODE TO STORE VALUES IN DATABASE IT AS sample1.php
   
   <html>
 <body>
@@ -396,7 +398,7 @@ THIS IS CSS FILE SAVE IT AS sample1.css
 
 __________________________________________________________________________________________________________________________________________________________
 
-THIS IS A PHP FILE SAVE IT AS my.php
+THIS IS A PHP CODE TO DISPLAY THE VALUES SAVE IT AS my.php
 
 <html>
 <head>
