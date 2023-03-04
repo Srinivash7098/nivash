@@ -1,0 +1,464 @@
+<html>
+
+<head>
+  <title> regs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <link rel="stylesheet" href="sample1.css">
+ 
+</head>
+
+<body>
+  <script src="/sample.js"></script>
+  <div class="head">
+    <ul class="navbar">
+      <li>
+        <h3><a href="#">Home</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">News</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Contact</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Search</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">About</a>
+      </li>
+      </h3>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+
+      <form name="form1" action="sample1.php" method="POST" enctype="multipart/form-data">
+        <div class="user-details">
+
+          <img width="130px" height="130px" src="#" id="newImg">
+          <input type="file" name="img_dir" id="InpImg">
+
+          <label><b>select multiple files to upload</b></label></br>
+          <input type="file" name="file[]" multiple >
+
+
+          <div class="input-box">
+            <label class="details">Full Name</label>
+            <input type="text" name="nam" placeholder="Enter your name" id="nam">
+            <label class="jv" id="a"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Email</label>
+            <input type="text" name="email" placeholder="Enter your email" id="email">
+            <label class="jv" id="b"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Phone Number</label>
+            <input type="number" name="num" placeholder="Enter your number" id="number">
+            <label class="jv" id="c"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Password</label>
+            <input type="text" name="pass" placeholder="Enter your password" id="pass">
+            <label class="jv" id="d"></label>
+          </div>
+          <div class="input-box">
+            <label class="details">Confirm Password</label>
+            <input type="text" name="cf" placeholder="Confirm your password" id="cf">
+            <label class="jv" id="e"></label>
+          </div>
+        </div>
+
+        <div class="button">
+          <button type="submit" onclick="validate()" name="submit">submit</button>
+          <button type="button" ><a href="my.php">show details</a></button>
+        </div>
+      </form>
+      <script src="sample.js">
+            
+      </script>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+
+
+
+
+_____________________________________________________________________________________________________________________________________________________
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.navbar{
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+  
+}
+.navbar li a{
+  text-decoration: none;
+  color: #0d0c0c;
+  text-transform: uppercase;
+ 
+}
+.navbar li::after{
+  content:'';
+  height: 3px;
+  width: 0%;
+  background: #009688;
+  position: absolute;
+  left:0;
+  bottom:-10px;
+  transition:0.5s;
+}
+.navbar li:hover::after{
+  width: 100%;
+}
+.head{
+  position: relative;
+  top:-400px;
+}
+  body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #77bbe8, #9b59b6);
+  }
+  .container{
+    margin-left: -500px;
+    max-width: 600px;
+    width: 100%;
+    background-color:white;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
+  .container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+  }
+  .container .title::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+  .content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  form .input-box label.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+   form .category{
+     display: flex;
+     width: 80%;
+     margin: 14px 0 ;
+     justify-content: space-between;
+   }
+   form .category label{
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+   }
+   form .category label {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+   form input[type="radio"]{
+     display: none;
+   }
+   form .button{
+     height: 45px;
+     margin: 35px 0
+   }
+   form .button input{
+     height: 100%;
+     width: 100%;
+     border-radius: 5px;
+     border: none;
+     color: #fff;
+     font-size: 18px;
+     font-weight: 500;
+     letter-spacing: 1px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     background: linear-gradient(135deg, #71b7e6, #9b59b6);
+   }
+   form .button input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    }
+  
+  form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    form .category{
+      width: 100%;
+    }
+    .content form .user-details{
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    .button button{
+      height: 40px;
+      width: 20%;
+      background-color: #fff;
+      border-radius:50px;
+      
+    }
+    .jv{
+      color:red;
+    }
+    
+    
+    
+    
+    _________________________________________________________________________________________________________________________________________________
+    
+    
+    function validate(){
+    var formElement = document.querySelector('form');
+  formElement.addEventListener('submit', event => {
+
+    var pat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+   var nam   =document.form1.nam.value;
+   var emai =document.form1.email.value;
+   var num   =document.form1.num.value;
+   var pass  =document.form1.pass.value;
+   var cf    =document.form1.cf.value;
+    if(nam.length<=0){
+      var dat="*please enter the name";
+      document.getElementById('a').innerHTML= dat;
+      event.preventDefault();
+    }
+  
+     if(!emai.match(pat)){
+      var da="*please enter a valid email";
+      document.getElementById('b').innerHTML=da;
+      event.preventDefault();
+     }
+     if(num.length<10){
+      var d="*please enter your number";
+      document.getElementById('c').innerHTML= d;
+      event.preventDefault();
+     }
+     if(pass.length<=0){
+      var a="*please enter your password";
+      document.getElementById('d').innerHTML= a;
+      event.preventDefault();
+     }
+     if(cf!=pass){
+      var c="*password doesn't match";
+      document.getElementById('e').innerHTML= c;
+      event.preventDefault();
+     }
+      
+      
+      })
+  }
+  
+  
+  //image preview//
+  
+  InpImg.onchange = evt => {
+    const [file] = InpImg.files
+    if (file) {
+      newImg.src = URL.createObjectURL(file)
+    }
+  
+  }
+  
+  
+  
+  _________________________________________________________________________________________________________________________________________________________
+  
+  
+  
+  <html>
+<body>
+<?php
+  if(isset($_POST['submit']))
+  {
+    $name  = $_POST['nam'];
+    $email = $_POST['email'];
+    $num   = $_POST['num'];
+    $pass  = $_POST['pass'];
+    $cf    = $_POST['cf'];
+    if(getimagesize($_FILES['img_dir']['tmp_name'])==false)
+    {
+      echo "select image";
+    }
+    else
+      {
+         $image=$_FILES['img_dir']['tmp_name'];
+         $nam=$_FILES['img_dir']['name'];
+
+         $image=file_get_contents($image);
+         $image=base64_encode($image);
+      }
+
+
+      $target_dir = "uploads/";
+
+    
+      $countfiles = count($_FILES['file']['name']);
+
+      for($i=0;$i<$countfiles;$i++){
+  
+          
+          $filename = $_FILES['file']['name'][$i];
+  
+          
+          $tempname = $_FILES['file']['tmp_name'][$i];
+          $tempname=file_get_contents( $tempname);
+          $tempname=base64_encode( $tempname);
+  
+          $target_file = $target_dir . basename($filename);
+  
+          move_uploaded_file($tempname, $target_file);
+
+          $conn = mysqli_connect('127.0.0.1','srinivash','srinivash2023','srinivash');
+          $query = "INSERT INTO niv(nam,email,num,pass,cf,img_dir,multiple) VALUES ( '$name','$email','$num','$pass','$cf','$image','$tempname')";
+        $r=mysqli_query($conn, $query);
+          mysqli_close($conn);
+      }  
+    if($r){
+      echo "added";
+    }
+    else{
+      echo" not added";
+    }
+   }
+    
+?>
+
+  </html>
+  
+
+__________________________________________________________________________________________________________________________________________________________
+
+<html>
+<head>
+      <title>database record</title>
+      <style type="text/css">
+         body{
+         
+            background:rgba(233,76,161,0.6);
+         }
+         table{
+            width:30%;
+            color:black;
+            font-size:20px;
+            text-align:left;
+            position:relative;
+            left:20%;
+            background:#fafafa;
+            text-align:center;
+           
+         }
+         th,td{
+            padding:5px 50px;
+         }
+         th{
+            background:#ba68c8;
+            color:#fafafa;
+            text-transform:uppercase;
+         }
+         tr:nth-child(odd){
+            background-color:#eeeeee;
+         }
+         img{
+            border-radius:100%;
+         }
+         </style></head>
+    <body>
+      <table>
+         <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>number</th>
+            <th>photo</th>
+            <th>photo</th>
+         </tr>
+<?php
+ $con=mysqli_connect('127.0.0.1','srinivash','srinivash2023','srinivash');
+ if(!$con){
+   die('connection error'.mysqli_connect_errorno());
+}
+?>
+
+<?php
+$sql="SELECT * FROM niv";
+$result=$con->query($sql);
+if($result->num_rows>0){
+   while($row=$result->fetch_array(MYSQLI_BOTH))
+   {
+      
+      echo  "<tr><td>".$row["nam"]."</td><td>"
+      .$row["email"]."</td><td>"
+      .$row["num"]."</td><td>"
+      ."<img width='50px' height='50px' src='data:image;base64,{$row["img_dir"]}'alt='niv'>"."</td><td>"
+      ."<img width='50px' height='50px' src='data:image;base64,{$row["multiple"]}'alt='niv'>"."</td>"; 
+   }
+}
+?>
+
+
+
