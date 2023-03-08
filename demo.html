@@ -1,0 +1,143 @@
+<html>
+
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+  
+   
+  <title> regs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <link rel="stylesheet" href="sample1.css">
+ 
+</head>
+
+<body>
+
+  <div class="head">
+    <ul class="navbar">
+      <li>
+        <h3><a href="#">Home</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">News</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Contact</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">Search</a>
+      </li>
+      </h3>
+      <li>
+        <h3><a href="#">About</a>
+      </li>
+      </h3>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+
+      <form name="form1" action="sample1.php" id="form" method="POST" enctype="multipart/form-data">
+        <div class="user-details">
+
+          <img width="130px" height="130px" src="#" id="newImg">
+          <input type="file" name="img_dir" id="InpImg">
+
+          <label><b>select multiple files to upload</b></label></br>
+          <input type="file" name="file[]" multiple >
+
+
+          <div class="input-box">
+            <label class="details">Full Name</label>
+            <input type="text" name="nam" placeholder="Enter your name" id="nam">
+            <label class="jv" id="a"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Email</label>
+            <input type="text" name="email" placeholder="Enter your email" id="email">
+            <label class="jv" id="b"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Phone Number</label>
+            <input type="number" name="num[]" placeholder="Enter your number" id="number">
+            
+            <button id="btn" type="button">add more</button>
+            
+            <p></p>
+           
+            
+            <label class="jv" id="c"></label>
+          </div>
+
+          <div class="input-box">
+            <label class="details">Password</label>
+            <input type="text" name="pass" placeholder="Enter your password" id="pass">
+            <label class="jv" id="d"></label>
+          </div>
+          <div class="input-box">
+            <label class="details">Confirm Password</label>
+            <input type="text" name="cf" placeholder="Confirm your password" id="cf">
+            <label class="jv" id="e"></label>
+          </div>
+        </div>
+
+        <div class="button">
+          <button type="submit" onclick="validate()" name="submit"id="save">submit</button>
+          <button type="button" ><a href="my.php">show details</a></button>
+         
+        </div>
+
+
+
+
+        <script>
+          $(document).ready(function(){
+       
+            $('#btn').click(function(){
+         
+              $("p").append('<section> <input type="number" id="gg" name="num[]"  placeholder="Enter your number" id="number"> <button type="button" class="del" type="button">remove</button></section>');
+            });
+            
+            $(document).on('click', '.del', function(){
+              $(this).closest("section").remove();
+          
+            });
+            
+            $('#save').click(function(){		
+              $.ajax({
+                url:"sample1.php",
+                method:"POST",
+                data:$('#form').serialize(),
+                success:function(data)
+                {
+                  alert(data);
+                  
+                }
+              });
+            });
+            
+          });
+          </script>
+
+
+      </form>
+    
+            
+      </script>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
