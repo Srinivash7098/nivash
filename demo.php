@@ -9,6 +9,9 @@
     $pass  = $_POST['pass'];
     $cf    = $_POST['cf'];
     $number = count($_POST["num"]);
+
+// adding Single image to database
+
     if(getimagesize($_FILES['img_dir']['tmp_name'])==false)
     {
       echo "select image";
@@ -25,7 +28,11 @@
 
       $target_dir = "uploads/";
 
-    
+
+
+    //Adding multiple image file
+
+
       $countfiles = count($_FILES['file']['name']);
 
       for($i=0;$i<$countfiles;$i++){
@@ -42,7 +49,8 @@
   
           move_uploaded_file($tempname, $target_file);
      
-          
+          //Adding multiple number
+
 	          for($i=0; $i<$number; $i++)
 	         {
 		      
