@@ -1,15 +1,22 @@
 <html>
 
 <head>
+  <script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+  
+   
   <title> regs</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <link rel="stylesheet" href="sample1.css">
- 
+  
+  <script type="text/javascript" src="sample.js" ></script>
 </head>
 
 <body>
-  <script src="/sample.js"></script>
+
   <div class="head">
     <ul class="navbar">
       <li>
@@ -39,14 +46,14 @@
     <div class="title">Registration</div>
     <div class="content">
 
-      <form name="form1" action="sample1.php" method="POST" enctype="multipart/form-data">
+      <form name="form1" action="demo.php" id="form" method="POST" enctype="multipart/form-data">
         <div class="user-details">
 
           <img width="130px" height="130px" src="#" id="newImg">
           <input type="file" name="img_dir" id="InpImg">
 
-          <label>select multiple files to upload</label></br>
-          <input type="file" name="file[]" multiple>
+          <label><b>select multiple files to upload</b></label></br>
+          <input type="file" name="file[]" multiple >
 
 
           <div class="input-box">
@@ -63,7 +70,13 @@
 
           <div class="input-box">
             <label class="details">Phone Number</label>
-            <input type="number" name="num" placeholder="Enter your number" id="number">
+            <input type="number" name="num[]" placeholder="Enter your number" id="number">
+            
+            <button id="btn" type="button">add more</button>
+            
+            <p></p>
+           
+            
             <label class="jv" id="c"></label>
           </div>
 
@@ -80,13 +93,57 @@
         </div>
 
         <div class="button">
-          <button type="submit" onclick="validate()" name="submit">submit</button>
-          <button type="button" ><a href="my.php">show details</a></button>
+          <button type="submit" onclick="validate()" name="submit"id="save">submit</button>
+          <button type="button " id="butto" ><a href="my.php">show details</a></button>
+         
         </div>
-      </form>
-      <script src="sample.js">
+
+
+
+
+        <script>
+          $(document).ready(function(){
+       
+            $('#btn').click(function(){
+         
+              $("p").append('<section> <input type="number" id="gg" name="num[]"  placeholder="Enter your number" id="number"> <button type="button" class="del" type="button">remove</button></section>');
+            });
             
-      </script>
+            $(document).on('click', '.del', function(){
+              $(this).closest("section").remove();
+          
+            });
+            
+            $('#save').click(function(){		
+              $.ajax({
+                url:"sample1.php",
+                method:"POST",
+                data:$('#form').serialize(),
+                success:function(data)
+                {
+                  
+                  
+                }
+              });
+            });
+            
+          });
+
+
+          InpImg.onchange = evt => {
+  const [file] = InpImg.files
+  if (file) {
+    newImg.src = URL.createObjectURL(file)
+  }
+
+}
+          </script>
+
+
+      </form>
+    
+            
+
 
     </div>
   </div>
