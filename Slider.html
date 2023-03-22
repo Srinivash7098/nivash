@@ -1,83 +1,104 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Image Slider</title>
+    <link rel="stylesheet" href="sam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
 </head>
 <body>
-
-    <div class="container">
-        <div class="image">
-            <img src="images/img-1.jpg" alt="">
-        </div>
-        <div class="image">
-            <img src="images/img-2.jpg" alt="">
-        </div>
-        <div class="image">
-            <img src="images/img-3.jpg" alt="">
-        </div>
-        <div class="image">
-            <img src="images/img-4.jpg" alt="">
-        </div>
-        <div class="image">
-            <img src="images/img-5.jpg" alt="">
-        </div>
-
-        <div class="button">
-            <a onclick="nextimg(-1)" class="prev">&#10094;</a>
-            <a onclick="nextimg(1)" class="next">&#10095;</a>
-        </div>
-
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-        </div>
+    <div class="nav">
+        <div class="ek"><span style="color:red">ek</span><span span style="color:rgb(13, 198, 13)">gaon</span></div>
     </div>
+    <div class="me">
+     <div class="menu">
+         <a href="#">HOME</a>
+         <a href="#">PRODUCTS</a>
+         <a href="#">CONTACT</a>
+         <a href="#">POLICY</a>
+       </div>
+    </div>
+   
 
-    <script>
+    <div class="se">
+        <button class="sear">
+        <i class="fa fa-search"></i>
+    </button>
+     <input type="text"class="inpu" placeholder="enter a text to search">
+   </div>
+   <div class="img">
+    <img class="img" src="12.jpg" id="a">
+    <img class="img" src="13.jpg" id="b">
+    <img class="img" src="11.jpg" id="c">
+    <img class="img" src="14.jpg" id="d">
+</div>
 
-        var imageno =1;
-        displayimg(imageno);
 
-        function nextimg(n){
-            displayimg(imageno += n)
-        }
 
-        function currentSlide(n){
-            displayimg(imageno = n)
-        }
 
-        function displayimg(n){
-            var i;
-            var image = document.getElementsByClassName("image");
-            var dots = document.getElementsByClassName("dot");
 
-            if(n > image.length){
-                imageno = 1;
-            }
+</footer>
 
-            if(n < 1){
-                imageno = image.length;
-            }
+<div class="black">
+    <h4 class="aaa">NOTE FROM THE DIRECTOR</h4>
+  <p class="p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum blanditiis, magni perspiciatis rerum quis vitae voluptatum 
+    porro dolorem laborum quidem dolorum quaerat impedit perferendis, ratione deserunt tempora eveniet. Cupiditate natus aliquid, 
+    odit quidem alias eius totam 
+    omnis nam vitae ab culpa repellendus reprehenderit ex maxime
+    </p>
+    <p><h3 class="head">hello</h3></p>
+    <p class="s">
+        ADDRESS<br>
+        Ekgaon madurai office,<br>
+       Food products supplier,<br>
+       ekgaon madurai office ViNew Vilangudi Madurai Tamil Nadu,<br>
+       ph no:0452 260 2433
+    </p>
+    <div id="er">
 
-            for(i=0; i < image.length; i++){
-                image[i].style.display = "none";
-            }
+</div>
+<div class="li">
 
-            for(i=0; i < dots.length; i++){
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
+  <h6  class="h1">our</h6><h2  class="h2">product</h2>
+  <div class="all">
+    <div class="st">
+ <img src="11.jpg" class="niv">
+ <h5>price:1000</h5>
+ <div class="fle">
+   <li class="star"><i class="fa fa-star"></i></li>
+   <li class="star"><i class="fa fa-star"></i></li>
+   <li class="star"><i class="fa fa-star"></i></li>   
+</div>
+</div>
+<div class="st">
+<img src="12.jpg" class="niv">
+<h5>price:1000</h5>
+<div class="fle">
+  <li class="star"><i class="fa fa-star"></i></li>
+  <li class="star"><i class="fa fa-star"></i></li>
+  <li class="star"><i class="fa fa-star"></i></li>   
+</div>
+</div>
+<img src="13.jpg" class="niv">
+<h5>price:1000</h5>
+<div class="fle">
+ <li class="star"><i class="fa fa-star"></i></li>
+ <li class="star"><i class="fa fa-star"></i></li>
+ <li class="star"><i class="fa fa-star"></i></li>   
+</div>
 
-            image[imageno - 1].style.display ="block";
-            dots[imageno - 1].className += " active";
+<img src="14.jpg" class="niv">
+<h5>price:1000</h5>
+<div class="fle">
+<li class="star"><i class="fa fa-star"></i></li>
+<li class="star"><i class="fa fa-star"></i></li>
+<li class="star"><i class="fa fa-star"></i></li>   
+</div>
 
-        }
+</div> 
+</div>
 
-    </script>
 </body>
 </html>
